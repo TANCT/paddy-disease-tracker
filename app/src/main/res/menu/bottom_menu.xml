@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/itm_home"
+        android:title="@string/home"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_home"/>
+
+    <item
+        android:id="@+id/itm_detector"
+        android:title="Detector"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_detector"
+         />
+    <item
+        android:id="@+id/itm_dashboard"
+        android:title="@string/dashboard"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_dashboard"/>
+
+
+
+
+</menu>
