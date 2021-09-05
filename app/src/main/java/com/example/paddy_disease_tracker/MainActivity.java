@@ -11,16 +11,13 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
-    //TextView text = findViewById(R.id.greeting);
-    //Calendar calendar = Calendar.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //int hrs = calendar.get(Calendar.HOUR_OF_DAY);
-        //setGreeting(hrs);
+        
        BottomNavigationView bottomNavigationView=findViewById(R.id.bottom_navigation_view);
 
 
@@ -49,16 +46,5 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         };
-    /*public void setGreeting(int hrs){
-        if(hrs>0&&hrs<12){
-            text.setText("Good Morning!");
-        }else if(hrs>=12&&hrs<17){
-            text.setText("Good Afternoon!");
-        }else if(hrs>=17&&hrs<21){
-            text.setText("Good Evening!");
-        }else{
-            text.setText("Good Night!");
-        }
-    }*/
-
+   
     }
