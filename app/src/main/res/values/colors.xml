@@ -9,4 +9,10 @@
     <color name="white">#FFFFFFFF</color>
     <color name="light_green">#33FF66</color>
     <color name="dirty_green">#4F5705</color>
+    <color name="peach">#ff6666</color>
+    <color name="sapphire">#2177a0</color>
+    <color name="brightBlue">#40E0D0</color>
+    <color name="bblue">#004262</color>
+    <color name="middle_pink">#ff6666</color>
+    <color name="child_green">#bada55</color>
 </resources>
