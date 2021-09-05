@@ -66,6 +66,13 @@ public class DetectDiseaseFragment extends Fragment {
 
             }
         });
+        report.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(getActivity(),ReportActivity.class);
+                startActivity(intent);
+            }
+        });
 
         return v;
     }
