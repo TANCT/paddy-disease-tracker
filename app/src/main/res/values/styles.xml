@@ -8,5 +8,11 @@
         <item name="color">@color/white</item>
     </style>
 
+    <style name="RoundedCornerImageView" parent="">
+        <item name="cornerRadius">20dp</item>
+        <item name="cornerFamily">rounded</item>
+        <item name="color">@color/white</item>
+    </style>
+
 
 </resources>
