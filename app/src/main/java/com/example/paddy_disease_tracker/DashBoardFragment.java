@@ -129,7 +129,7 @@ public class DashBoardFragment extends Fragment {
                     wind+=(String.valueOf(wind_object.getDouble("deg")))+"°";
 
                     t_temp.setText(temp);
-                    t_city.setText(location);
+                    t_city.setText(city);
                     t_desc.setText(description);
                     t_wind.setText(wind);
                     t_hum.setText(humidity);
