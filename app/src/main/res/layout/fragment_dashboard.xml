@@ -148,7 +148,8 @@
                     android:id="@+id/location"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="text" />
+                    android:text="text"
+                    android:visibility="invisible" />
 
 
             </RelativeLayout>
