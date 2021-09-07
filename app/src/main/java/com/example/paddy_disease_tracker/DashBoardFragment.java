@@ -94,22 +94,23 @@ public class DashBoardFragment extends Fragment {
             public void onSuccess(Location location) {
                 lat = (int)location.getLatitude();
                 lon = (int)location.getLongitude();
-                t_location.setText(lat + ", " + lon);
-                //location= String.valueOf(lat) + ", " + String.valueOf(lon);
+                t_location.setText("lat="+lat + "&lon=" + lon);
+                findWeather();
 
             }
+
         });
         //String location= (String) t_location.getText();
 
-       findWeather();
+
        return v;
     }
     public void findWeather()
     {
 
         String location= String.valueOf(t_location.getText());
-        //String url="https://api.openweathermap.org/data/2.5/weather?"+locator.getLocation()+"&appid=197262e81c582f37f3b17e295ff743d6";
-        String url="https://api.openweathermap.org/data/2.5/weather?q=Kuala%20Lumpur&appid=197262e81c582f37f3b17e295ff743d6";
+        String url="https://api.openweathermap.org/data/2.5/weather?"+location+"&appid=197262e81c582f37f3b17e295ff743d6";
+        //String url="https://api.openweathermap.org/data/2.5/weather?q=Kuala%20Lumpur&appid=197262e81c582f37f3b17e295ff743d6";
 
         JsonObjectRequest jor= new JsonObjectRequest(Request.Method.GET,url,null,new Response.Listener<JSONObject>() {
             @Override
