@@ -1,8 +1,10 @@
 package com.example.paddy_disease_tracker;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -16,11 +18,28 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
+
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
+    String query;
+    Statement st;
+    ResultSet rs;
+    Toast toast;
+    String disease,status;
+    float lat,lon;
     private GoogleMap mMap;
     private ActivityMapsBinding binding;
-    LatLng centerLocation;
+    LatLng centerLocation,place;
+    Connection connect;
+    ArrayList<LatLng> places=new ArrayList<LatLng>();
+    ArrayList<String> dis=new ArrayList<String>();
+    Intent intent;
+    float lati=0,longi=0;
+    int focus=6;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,13 +47,52 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         binding = ActivityMapsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        Intent intent=this.getIntent();
+        if(intent!=null){
+            lati=intent.getFloatExtra("lat",0);
+            longi=intent.getFloatExtra("lon",0);
+
+        }
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
-        centerLocation=new LatLng(6.0,101);
+
+        if(lati!=0&&longi!=0){
+            centerLocation=new LatLng(lati,longi);
+            focus=12;
+        }else{
+            centerLocation=new LatLng(6.0,101);
+        }
+
+        try {
+            ConnectionHelper connectionHelper = new ConnectionHelper();
+            connect = connectionHelper.connectionclass();
+
+            if (connect != null) {
+                query = "Select * from Disease";
+                st = connect.createStatement();
+                rs = st.executeQuery(query);
+                while (rs.next()) {
+                    status=rs.getString(7);
+                    if(status.equals("Found")){
+                        disease=rs.getString(3);
+                        lat=rs.getFloat(4);
+                        lon=rs.getFloat(5);
+                        places.add(new LatLng(lat,lon));
+                        dis.add(disease);
+                }
+                }
+            } else {
+                toast=Toast.makeText(getApplicationContext(),"Check Connection",Toast.LENGTH_LONG);
+                toast.show();
+            }
+        }catch(Exception e){
+            toast=Toast.makeText(getApplicationContext(),e.getMessage(),Toast.LENGTH_LONG);
+            toast.show();
+        }
     }
 
     /**
@@ -48,12 +106,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
      */
     @Override
     public void onMapReady(GoogleMap googleMap) {
+
         mMap = googleMap;
         enableMyLocation();
         // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(1.4820459,103.6472761);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney").snippet("BrownSpot detected"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(centerLocation,6));
+        for(int i=0; i<places.size();i++){
+            mMap.addMarker(new MarkerOptions().position(places.get(i)).title(dis.get(i)+" found"));
+        }
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(centerLocation,focus));
     }
 
     private void enableMyLocation() {
