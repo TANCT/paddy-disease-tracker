@@ -71,6 +71,13 @@ public class DetectDiseaseFragment extends Fragment {
 
             }
         });
+        details.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(getActivity(),SelectDiseaseDetails.class);
+                startActivity(intent);
+            }
+        });
         upload_photo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
