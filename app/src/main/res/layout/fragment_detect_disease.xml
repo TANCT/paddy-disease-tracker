@@ -54,19 +54,35 @@
                 android:layout_marginHorizontal="30dp"
                 android:layout_marginTop="20dp"
                 android:padding="1dp"
-                android:scaleType="centerCrop"
-                android:cropToPadding="true"
                 android:background="@drawable/bordered_imageview"
                 tools:src="@tools:sample/avatars" />
+
+
 
             <Button
                 android:id="@+id/take_photo_btn"
                 android:backgroundTint="@color/child_green"
-                android:layout_width="wrap_content"
+                android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
-                android:text="Capture Image" />
+                android:text="Take Photo" />
+            <Button
+                android:id="@+id/live_img_btn"
+                android:backgroundTint="@color/child_green"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp"
+                android:text="Live Detection" />
+            <Button
+                android:id="@+id/upload_img_btn"
+                android:backgroundTint="@color/child_green"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp"
+                android:text="Upload From Gallery" />
 
             <ListView
                 android:id="@+id/probabilities"
@@ -74,7 +90,7 @@
                 android:layout_height="200dp"
                 android:layout_marginHorizontal="20dp"
                 android:layout_gravity="center"
-                android:layout_marginTop="10dp" />
+                android:layout_marginTop="5dp" />
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="100dp">
@@ -87,7 +103,8 @@
                     android:layout_marginLeft="40dp"
                     android:layout_marginTop="10dp"
                     android:text="Report"
-                    android:visibility="invisible" />
+                    android:visibility="visible"
+                    />
 
                 <Button
                     android:id="@+id/detail_btn"
@@ -98,9 +115,14 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginRight="40dp"
                     android:text="Details"
-                    android:visibility="invisible" />
+                    android:visibility="visible"
+                     />
 
             </RelativeLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                />
 
 
 
@@ -112,14 +134,6 @@
 
     </ScrollView>
 
-
-
-
-
-
-
-
-
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+
