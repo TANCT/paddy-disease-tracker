@@ -29,6 +29,7 @@ public class HomeFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v=inflater.inflate(R.layout.fragment_home,container,false);
         RelativeLayout aroundme=v.findViewById(R.id.aroundMe);
+        RelativeLayout detectedDiseases=v.findViewById(R.id.diseasesDetected);
         TextView text = (TextView)v.findViewById(R.id.greeting);
         Calendar calendar = Calendar.getInstance();
         recyclerView=v.findViewById(R.id.recycler_view);
@@ -53,6 +54,13 @@ public class HomeFragment extends Fragment {
             }
 
 
+        });
+        detectedDiseases.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(getActivity(),RecordDiseases.class);
+                startActivity(intent);
+            }
         });
 
         mainModal=new ArrayList<>();
