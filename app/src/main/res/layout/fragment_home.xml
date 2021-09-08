@@ -103,7 +103,7 @@
             </RelativeLayout>
 
             <RelativeLayout
-                android:id="@+id/toDoList"
+                android:id="@+id/diseasesDetected"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:layout_marginTop="20dp"
@@ -111,21 +111,15 @@
                 android:background="@drawable/blue">
 
                 <TextView
-                    android:id="@+id/todolist_txt"
+                    android:id="@+id/diseasesDetected_txt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/baloo"
                     android:padding="25dp"
-                    android:text="@string/toDoList"
-
+                    android:text="@string/diseasesDetected"
                     android:textSize="30sp" />
 
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_alignParentRight="true"
-                    android:src="@drawable/ic_todolist"
-                    android:layout_margin="10dp"/>
+
 
             </RelativeLayout>
             <TextView
