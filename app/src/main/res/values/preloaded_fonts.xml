@@ -2,7 +2,11 @@
 <resources>
     <array name="preloaded_fonts" translatable="false">
         <item>@font/</item>
+        <item>@font/abril_fatface</item>
         <item>@font/amiko_semibold</item>
+        <item>@font/antic_slab</item>
+        <item>@font/arvo</item>
         <item>@font/baloo</item>
     </array>
 </resources>
+
