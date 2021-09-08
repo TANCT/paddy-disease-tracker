@@ -19,7 +19,12 @@
     <string name="login_failed">"Login failed"</string>
     <string name="title_activity_maps">MapsActivity</string>
     <string name="around_me">Around Me</string>
-    <string name="toDoList">To Do List</string>
+    <string name="diseasesDetected">Diseases Detected</string>
+    <string name="staffid"><font size="15">Staff ID</font></string>
+    <string name="pwd"><font size="15">Password</font></string>
+    <string name="disease"><font size="15">Disease</font></string>
+    <string name="region"><font size="15">Region</font></string>
+    <string name="diseasetype">Details of Diseases</string>
 
 
 </resources>
