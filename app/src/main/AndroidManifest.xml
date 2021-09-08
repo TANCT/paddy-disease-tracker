@@ -20,6 +20,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Paddy_Disease_Tracker">
         <activity
+            android:name=".SelectDiseaseDetails"
+            android:exported="true" />
+        <activity
+            android:name=".RecordDiseases"
+            android:exported="true" />
+        <activity
             android:name=".LeafBlast"
             android:exported="true" />
         <activity
@@ -39,6 +45,9 @@
              sign the APK for publishing.
              You can define the keys for the debug and release targets in src/debug/ and src/release/.
         -->
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
