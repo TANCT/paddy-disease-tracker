@@ -73,7 +73,7 @@ public class ObjectDetectorActivity extends AppCompatActivity implements CameraB
 
         try
         {
-            objectDetectorClass=new objectDetectorClass(getAssets(), "model.tflite","labels.txt",300);
+            objectDetectorClass=new objectDetectorClass(getAssets(), "modelLive.tflite","labelsLive.txt",300);
             Log.d("DetectDiseaseFragment","Model is successfully loadedr");
         }
         catch (IOException e)
