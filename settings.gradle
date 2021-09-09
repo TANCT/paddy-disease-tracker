@@ -8,3 +8,7 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Paddy_Disease_Tracker"
 include ':app'
+
+def opencvsdk='opencv-3.4.13-android-sdk\\OpenCV-android-sdk'
+include ':opencv'
+project(':opencv').projectDir = new File(opencvsdk + '/sdk')
