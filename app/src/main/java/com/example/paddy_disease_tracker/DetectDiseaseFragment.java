@@ -27,6 +27,8 @@ import androidx.fragment.app.Fragment;
 
 import com.example.paddy_disease_tracker.classifier.ImageClassifier;
 
+import org.opencv.android.OpenCVLoader;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -40,9 +42,23 @@ public class DetectDiseaseFragment extends Fragment {
     private ListView listview;
     private static final int CAMERA_PERMISSION_REQUEST_CODE = 1000;
     private ImageClassifier imageClassifier;
-    Button takepicture, report, details, upload_photo;
+    Button takepicture, report, details, upload_photo, live_image ;
     Uri imageuri;
     Bitmap bitmap;
+
+
+
+    static
+    {
+        if(OpenCVLoader.initDebug())
+        {
+            Log.d("DetectDiseaseFragment","Opencv is loaded");
+        }
+        else
+        {
+            Log.d("DetectDiseaseFragment","Opencv failed to load");
+        }
+    }
 
     @Nullable
     @Override
@@ -54,6 +70,7 @@ public class DetectDiseaseFragment extends Fragment {
         report = (Button) v.findViewById(R.id.report_btn);
         details = (Button) v.findViewById(R.id.detail_btn);
         upload_photo = (Button) v.findViewById(R.id.upload_img_btn);
+        live_image=(Button) v.findViewById(R.id.live_img_btn);
         try {
             imageClassifier = new ImageClassifier(getActivity());
         } catch (IOException e) {
@@ -95,6 +112,17 @@ public class DetectDiseaseFragment extends Fragment {
                 startActivity(intent);
             }
         });
+
+        live_image.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                startActivity(new Intent(DetectDiseaseFragment.this.getActivity(),ObjectDetectorActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_CLEAR_TOP));
+            }
+        });
+
+
 
         return v;
     }
