@@ -170,7 +170,7 @@ public class DetectDiseaseFragment extends Fragment {
                 }
                 break;
         }
-
+        details.setVisibility(View.VISIBLE);
 
         if(bitmap!=null){
             List<ImageClassifier.Recognition> predictions = imageClassifier.recognizeImage(bitmap, 0);
