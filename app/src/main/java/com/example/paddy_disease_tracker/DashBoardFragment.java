@@ -92,10 +92,22 @@ public class DashBoardFragment extends Fragment {
         fusedLocationClient.getLastLocation().addOnSuccessListener(getActivity(), new OnSuccessListener<Location>() {
             @Override
             public void onSuccess(Location location) {
-                lat = (int)location.getLatitude();
-                lon = (int)location.getLongitude();
-                t_location.setText("lat="+lat + "&lon=" + lon);
-                findWeather();
+                if(location!=null)
+                {
+                    lat = (int)location.getLatitude();
+                    lon = (int)location.getLongitude();
+                    t_location.setText("lat="+lat + "&lon=" + lon);
+                    findWeather();
+                }
+                else
+                {
+                    Calendar calendar = Calendar.getInstance();
+                    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+                    String formatted_date = sdf.format(calendar.getTime());
+                    t_date.setText(formatted_date);
+
+                    t_city.setText("Please turn on location");
+                }
 
             }
 
