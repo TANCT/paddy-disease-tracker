@@ -21,7 +21,7 @@ public class ConnectionHelper {
         try{
             Class.forName("net.sourceforge.jtds.jdbc.Driver").newInstance();
             ConnectionURL="jdbc:jtds:sqlserver://ylkami.database.windows.net:1433;DatabaseName= dB name;user=dB user;password=dB password;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;ssl=request";
-            connection= DriverManager.getConnection(ConnectionURL,"ylkami","UMHackathon1012");
+            connection= DriverManager.getConnection(ConnectionURL,username, dB password);
         }catch(Exception ex){
             Log.e("Error",ex.getMessage());
         }
